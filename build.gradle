@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+group 'org.scorpion'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation files("API/Spigot-Complete-1.20.jar")
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    //from(zipTree("API/json.jar"))
+    from {
+        subprojects.collect { it.sourceSets.main.output }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
