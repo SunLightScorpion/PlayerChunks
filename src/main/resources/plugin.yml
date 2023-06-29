@@ -1,0 +1,6 @@
+name: PlayerChunks
+main: de.sunlight.PlayerChunks
+version: 1.0
+api-version: 1.19
+author: NightDev701
+commands:
